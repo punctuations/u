@@ -10,6 +10,7 @@
   "dependencies": {
     "@sparticuz/chromium": "^107.0.0",
     "next": "12",
+    "playwright-chromium": "^1.27.0",
     "playwright-core": "^1.27.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
