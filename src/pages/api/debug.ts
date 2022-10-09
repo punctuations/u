@@ -10,6 +10,8 @@ type Query = {
   image?: string; // custom image, can be link like lanyard
   float?: "left" | "right" | "center"; // float of text
   logo?: string; // small logo, bottom left, bottom right, bottom center
+  font_url?: string; // url of a custom font
+  font_name?: string; // name of custom font
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -23,7 +25,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     "default-src 'none'; img-src * data:; style-src 'unsafe-inline'"
   );
 
-  const style = `<style> html { ${
+  const style = `<style> ${
+    query.font_url && query.font_name
+      ? `@import url('${query.font_url}'); * { font-family: ${query.font_name} !important }`
+      : ""
+  } html { ${
     query.background
       ? `background-position: center; background-size: cover; background-origin: border-box; background-image: url(${query.background});`
       : ""
