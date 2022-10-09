@@ -56,7 +56,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       : query.float == "center"
       ? "center"
       : "start"
-  }; } #image { justify-content: start; } #image > img { margin: 5rem 0 0 0; } #logo > img { margin: 0 0 3rem 0; } #logo { justify-content: end; } </style>`;
+  }; } #image > img { margin: 5rem 0 0 0; top: 0; } #logo > img { margin: 0 0 3rem 0; bottom: 0; } </style>`;
 
   const html = query.html
     ? await getLink(query.html)
