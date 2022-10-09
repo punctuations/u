@@ -7,23 +7,23 @@ export async function convert(html: string) {
   await chrome.font(
     "https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf"
   );
-  const options = process.env.AWS_REGION
-    ? {
-        args: chrome.args,
-        executablePath: await chrome.executablePath,
-        headless: chrome.headless,
-      }
-    : {
-        args: [],
-        headless: true,
-        executablePath:
-          process.platform === "win32"
-            ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
-            : process.platform === "linux"
-            ? "/usr/bin/google-chrome"
-            : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-      };
-  const browser = await chromium.launch(options);
+  // const options = process.env.AWS_REGION
+  //   ? {
+  //       args: chrome.args,
+  //       executablePath: await chrome.executablePath,
+  //       headless: chrome.headless,
+  //     }
+  //   : {
+  //       args: [],
+  //       headless: true,
+  //       executablePath:
+  //         process.platform === "win32"
+  //           ? "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+  //           : process.platform === "linux"
+  //           ? "/usr/bin/google-chrome"
+  //           : "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  //     };
+  const browser = await chromium.launch({ channel: "chrome" });
   const context = await browser.newContext({
     viewport: { width: 1920, height: 1080 },
   });

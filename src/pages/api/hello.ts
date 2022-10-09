@@ -48,7 +48,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       : query.float == "right"
       ? "0 5rem 0 0"
       : "0 0 0 5rem"
-  }; } h1 { font-size: 9rem; margin: 0 0 0 0; } p { text-align: ${
+  }; } h1 { font-size: 9rem; margin: 0 0 0 0; text-align: ${
+    query.float == "right"
+      ? "right"
+      : query.float == "center"
+      ? "center"
+      : "left"
+  }; } p { text-align: ${
     query.float == "right"
       ? "right"
       : query.float == "center"
