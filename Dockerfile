@@ -11,4 +11,6 @@ RUN npx playwright install chrome
 COPY . /app/
 RUN yarn run build
 
+EXPOSE 3000
+
 CMD ["yarn", "run", "start"]
