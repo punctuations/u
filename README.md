@@ -1,7 +1,7 @@
 ![logo](./public/favicon.ico)
 ---
 
-# μ
+# μ (mu)
 
 μ is a customizable image generator AND a html-to-image converter!
 (basically a github-readme and/or open graph image generator)
