@@ -6,6 +6,8 @@ WORKDIR /app/
 COPY package.*json /app/
 RUN yarn install --frozen-lockfile
 
+RUN npx playwright install chrome
+
 COPY . /app/
 RUN yarn run build
 
