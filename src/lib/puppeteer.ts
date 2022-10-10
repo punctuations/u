@@ -26,7 +26,7 @@ export async function convert(html: string) {
   const browser = await chromium.launch({ channel: "chrome" });
   const context = await browser.newContext({
     extraHTTPHeaders: {
-      contentSecurityPolicy: "font-src https:;",
+      contentSecurityPolicy: "font-src * https:",
     },
     viewport: { width: 1920, height: 1080 },
   });

@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader(
     "content-security-policy",
-    "default-src 'none'; img-src * data:; style-src 'unsafe-inline'"
+    "default-src 'none'; img-src * data:; font-src * https:; style-src 'unsafe-inline'"
   );
 
   const style = `<style> ${
