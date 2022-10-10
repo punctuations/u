@@ -8,3 +8,5 @@ RUN yarn install --frozen-lockfile
 
 COPY . /app/
 RUN yarn run build
+
+CMD ["yarn", "run", "start"]
