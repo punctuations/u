@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { convert } from "../../lib/puppeteer";
+import { convert } from "../../lib/playwright";
 import { getLink } from "../../lib/link";
 
 type Query = {
