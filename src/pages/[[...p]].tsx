@@ -5,6 +5,8 @@ import Editor, { useMonaco } from "@monaco-editor/react";
 import { debounce } from "lodash";
 
 import { useClipboard } from "use-clipboard-copy";
+import { NextSeo } from "next-seo";
+import Head from "next/head";
 
 export default function Home() {
   const clipboard = useClipboard({
@@ -158,119 +160,151 @@ export default function Home() {
   }
 
   return (
-    <main className="grid grid-cols-2 w-full h-screen">
-      <section className="h-full">
-        <Editor
-          height="100%"
-          theme="IDLE"
-          defaultLanguage="html"
-          defaultValue={`<style>\n\thtml {\n\t\tbackground-color: #fff;\n\t\tcolor: #000;\n\t}\n\tbody {\n\t\tdisplay: flex;\n\t\talign-items: center;\n\t\tjustify-content: start;\n\t}\n\tdiv {\n\t\tdisplay: flex;\n\t\tflex-direction: column;\n\t\tmargin: 0 0 0 5rem;\n\t}\n\th1 {\n\t\tfont-size: 9rem;\n\t\tmargin: 0 0 0 0;\n\t}\n\tp {\n\t\tmargin: 0 0.5rem 0 0.5rem;\n\t\tfont-size: 3rem;\n\t\tcolor: rgb(75 85 99);\n\t}\n\t#image,\n\t#logo {\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tposition: absolute;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tdisplay: flex;\n\t\talign-items: start;\n\t}\n\t#image > img {\n\t\tmargin: 5rem 0 0 0;\n\t\ttop: 0;\n\t\tposition: absolute;\n\t}\n\t#logo > img {\n\t\tmargin: 0 0 3rem 0;\n\t\tbottom: 0;\n\t\tposition: absolute;\n\t}\n</style>\n<div>\n\t<h1>Hello, world!</h1>\n\t<p>Lorem ipsum...</p>\n</div>\n`}
-          onChange={handleEditorChange}
-          options={{
-            wordWrap: "on",
-            tabSize: 2,
-            minimap: {
-              enabled: false,
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#fff" />
+      </Head>
+      <NextSeo
+        title="mu"
+        description="Easy open graph generation"
+        openGraph={{
+          type: "website",
+          url: "https://mu.canary.mx/",
+          title: "mu",
+          description: "Easy open generation.",
+          images: [
+            {
+              url: "https://mu.hop.sh/api/mu?dark=true&float=center&header=mμ&desc=easy%20open%20graph%20generation&background=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Funblast.com%2Fwp-content%2Fuploads%2F2018%2F08%2FGradient-Mesh-11.jpg&logo=https://mu.hop.sh/mu.svg",
+              width: 1224,
+              height: 719,
             },
-            smoothScrolling: true,
-            cursorSmoothCaretAnimation: true,
-            contextmenu: false,
-          }}
-        />
-      </section>
-      <section>
-        <Image alt="mu image" width={1920} height={1080} src={muImage} />
-        <section className="ml-2 flex flex-col space-y-2">
-          <header className="flex justify-between mr-8">
-            <h3>
-              HTML:{" "}
-              <input checked={checked} onChange={handleCheck} type="checkbox" />
-            </h3>
-            <button
-              onClick={() => clipboard.copy(`https://mu.canary.mx${muImage}`)}
-              className="w-20 rounded-md py-1 transition-colors duration-500 hover:bg-white hover:text-black border border-white hover:border-black bg-black text-white"
-            >
-              {clipboard.copied ? "Copied!" : "Copy"}
-            </button>
-          </header>
-          <hr />
-          <p className="font-bold text-center border border-black rounded w-2/12">
-            Options
-          </p>
-          <div className="flex flex-col space-y-1">
-            <p>
-              Header:{" "}
-              <input
-                onChange={(event) =>
-                  setHeader(encodeURIComponent(event.target.value))
-                }
-              />
-            </p>
-            <p>
-              Description:{" "}
-              <input
-                onChange={(event) =>
-                  setDesc(encodeURIComponent(event.target.value))
-                }
-              />
-            </p>
-            <p>
-              Image:{" "}
-              <input
-                onChange={(event) =>
-                  setImage(encodeURIComponent(event.target.value))
-                }
-              />
-            </p>
-            <p>
-              Logo:{" "}
-              <input
-                onChange={(event) =>
-                  setLogo(encodeURIComponent(event.target.value))
-                }
-              />
-            </p>
-            <p>
-              Float:{" "}
-              <select
-                onChange={(selected) =>
-                  setFloat(encodeURIComponent(selected.target.value))
-                }
+          ],
+        }}
+        twitter={{
+          handle: "@atmattt",
+          site: "@atmattt",
+          cardType: "summary_large_image",
+        }}
+      />
+      <main className="grid grid-cols-2 w-full h-screen">
+        <section className="h-full">
+          <Editor
+            height="100%"
+            theme="IDLE"
+            defaultLanguage="html"
+            defaultValue={`<style>\n\thtml {\n\t\tbackground-color: #fff;\n\t\tcolor: #000;\n\t}\n\tbody {\n\t\tdisplay: flex;\n\t\talign-items: center;\n\t\tjustify-content: start;\n\t}\n\tdiv {\n\t\tdisplay: flex;\n\t\tflex-direction: column;\n\t\tmargin: 0 0 0 5rem;\n\t}\n\th1 {\n\t\tfont-size: 9rem;\n\t\tmargin: 0 0 0 0;\n\t}\n\tp {\n\t\tmargin: 0 0.5rem 0 0.5rem;\n\t\tfont-size: 3rem;\n\t\tcolor: rgb(75 85 99);\n\t}\n\t#image,\n\t#logo {\n\t\ttop: 0;\n\t\tleft: 0;\n\t\tposition: absolute;\n\t\twidth: 100%;\n\t\theight: 100%;\n\t\tdisplay: flex;\n\t\talign-items: start;\n\t}\n\t#image > img {\n\t\tmargin: 5rem 0 0 0;\n\t\ttop: 0;\n\t\tposition: absolute;\n\t}\n\t#logo > img {\n\t\tmargin: 0 0 3rem 0;\n\t\tbottom: 0;\n\t\tposition: absolute;\n\t}\n</style>\n<div>\n\t<h1>Hello, world!</h1>\n\t<p>Lorem ipsum...</p>\n</div>\n`}
+            onChange={handleEditorChange}
+            options={{
+              wordWrap: "on",
+              tabSize: 2,
+              minimap: {
+                enabled: false,
+              },
+              smoothScrolling: true,
+              cursorSmoothCaretAnimation: true,
+              contextmenu: false,
+            }}
+          />
+        </section>
+        <section>
+          <Image alt="mu image" width={1920} height={1080} src={muImage} />
+          <section className="ml-2 flex flex-col space-y-2">
+            <header className="flex justify-between mr-8">
+              <h3>
+                HTML:{" "}
+                <input
+                  checked={checked}
+                  onChange={handleCheck}
+                  type="checkbox"
+                />
+              </h3>
+              <button
+                onClick={() => clipboard.copy(`https://mu.canary.mx${muImage}`)}
+                className="w-20 rounded-md py-1 transition-colors duration-500 hover:bg-white hover:text-black border border-white hover:border-black bg-black text-white"
               >
-                <option value="left">Left</option>
-                <option value="center">Center</option>
-                <option value="right">Right</option>
-              </select>
+                {clipboard.copied ? "Copied!" : "Copy"}
+              </button>
+            </header>
+            <hr />
+            <p className="font-bold text-center border border-black rounded w-2/12">
+              Options
             </p>
-            <p>
-              Background Image:{" "}
-              <input
-                onChange={(event) =>
-                  setBG(encodeURIComponent(event.target.value))
-                }
-              />
-            </p>
-            <p>
-              Dark:{" "}
-              <input
-                onChange={(checked) => setDark(checked.target.checked)}
-                type="checkbox"
-              />
-            </p>
-            <button
-              onClick={() => generate()}
-              disabled={checked}
-              className={`
+            <div className="flex flex-col space-y-1">
+              <p>
+                Header:{" "}
+                <input
+                  onChange={(event) =>
+                    setHeader(encodeURIComponent(event.target.value))
+                  }
+                />
+              </p>
+              <p>
+                Description:{" "}
+                <input
+                  onChange={(event) =>
+                    setDesc(encodeURIComponent(event.target.value))
+                  }
+                />
+              </p>
+              <p>
+                Image:{" "}
+                <input
+                  onChange={(event) =>
+                    setImage(encodeURIComponent(event.target.value))
+                  }
+                />
+              </p>
+              <p>
+                Logo:{" "}
+                <input
+                  onChange={(event) =>
+                    setLogo(encodeURIComponent(event.target.value))
+                  }
+                />
+              </p>
+              <p>
+                Float:{" "}
+                <select
+                  onChange={(selected) =>
+                    setFloat(encodeURIComponent(selected.target.value))
+                  }
+                >
+                  <option value="left">Left</option>
+                  <option value="center">Center</option>
+                  <option value="right">Right</option>
+                </select>
+              </p>
+              <p>
+                Background Image:{" "}
+                <input
+                  onChange={(event) =>
+                    setBG(encodeURIComponent(event.target.value))
+                  }
+                />
+              </p>
+              <p>
+                Dark:{" "}
+                <input
+                  onChange={(checked) => setDark(checked.target.checked)}
+                  type="checkbox"
+                />
+              </p>
+              <button
+                onClick={() => generate()}
+                disabled={checked}
+                className={`
                 ${
                   checked ? "cursor-not-allowed" : ""
                 } self-end mr-3 w-28 rounded-md py-1 transition-colors duration-500 hover:bg-white hover:text-black border border-white hover:border-black bg-black text-white
               `}
-            >
-              Generate &rarr;
-            </button>
-          </div>
+              >
+                Generate &rarr;
+              </button>
+            </div>
+          </section>
         </section>
-      </section>
-    </main>
+      </main>
+    </>
   );
 }
