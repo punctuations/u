@@ -20,6 +20,7 @@
     "use-clipboard-copy": "^0.2.0"
   },
   "devDependencies": {
+    "@types/puppeteer-core": "2.0.0",
     "@types/html-minifier": "^4.0.2",
     "@types/lodash": "^4.14.186",
     "@types/node": "^15.6.0",
