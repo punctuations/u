@@ -208,7 +208,12 @@ export default function Home() {
 					/>
 				</section>
 				<section>
-					<Image alt="mu image" width={1920} height={1080} src={muImage} />
+					<Image
+						alt="mu image"
+						width={1920}
+						height={1080}
+						src={`https://u.canary.mx${muImage}`}
+					/>
 					<section className="ml-2 flex flex-col space-y-2">
 						<header className="flex justify-between mr-8">
 							<h3>
