@@ -175,7 +175,7 @@ export default function Home() {
 					description: "Easy open generation.",
 					images: [
 						{
-							url: 'https://mu.hop.sh/api/mu?dark=true&float=center&header=mμ&desc=easy%20open%20graph%20generation&background=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Funblast.com%2Fwp-content%2Fuploads%2F2018%2F08%2FGradient-Mesh-11.jpg&logo=https://mu.hop.sh/mu.svg"width="100px',
+							url: 'https://mu.canary.mx/api/mu?dark=true&float=center&header=mμ&desc=easy%20open%20graph%20generation&background=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Funblast.com%2Fwp-content%2Fuploads%2F2018%2F08%2FGradient-Mesh-11.jpg&logo=https://mu.hop.sh/mu.svg"width="100px',
 							width: 1224,
 							height: 719,
 						},
